@@ -6,7 +6,7 @@ This software license may be freely used in unmodified form (with exceptions). A
 These are the changes made to this specific license:
 
 ### opyright Owner: Daniel Shea
-### Product Name: [PRODUCT NAME]
+### Product Name: CASEY
 ## License Modifications:
 Source code is NOT provided.
 Warranty is NOT given.
