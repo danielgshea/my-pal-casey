@@ -12,4 +12,4 @@ The developer of Casey is [Daniel Shea](danielgshea.com)
 
 ## License
 
-I don't have a license for that I need to learn about them first. 
+See License.md
