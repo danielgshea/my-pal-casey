@@ -1,0 +1,51 @@
+# General
+.DS_Store
+*.log
+*.tmp
+*.temp
+
+# Node.js (React app)
+casey-ui/node_modules/
+casey-ui/.pnp
+casey-ui/.pnp.js
+casey-ui/coverage/
+casey-ui/build/
+casey-ui/.env.local
+casey-ui/.env.development.local
+casey-ui/.env.test.local
+casey-ui/.env.production.local
+casey-ui/npm-debug.log*
+casey-ui/yarn-debug.log*
+casey-ui/yarn-error.log*
+
+# Python (FastAPI app)
+casey-webapp/__pycache__/
+casey-webapp/*.py[cod]
+casey-webapp/*$py.class
+casey-webapp/.env
+casey-webapp/.venv
+casey-webapp/env/
+casey-webapp/venv/
+casey-webapp/ENV/
+casey-webapp/env.bak/
+casey-webapp/venv.bak/
+casey-webapp/.pytest_cache/
+casey-webapp/htmlcov/
+casey-webapp/.coverage
+casey-webapp/.tox/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
