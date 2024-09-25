@@ -1,31 +1,11 @@
-# Commercial Standard License
-## Preamble/Intro
-This software license may be freely used in unmodified form (with exceptions). A work may only be copyrighted under this license in its unmodified form, or with some subsections removed or swapped out. Details todo.
+# Released under MIT License
 
-## Overview
-These are the changes made to this specific license:
+Copyright (c) 2013 Mark Otto.
 
-### opyright Owner: Daniel Shea
-### Product Name: CASEY
-## License Modifications:
-Source code is NOT provided.
-Warranty is NOT given.
-You are allowed to have this software installed on [NUM] machine(s) at once.
-Commercial or educational use is NOT allowed.
-## Definitions
-"Product", or "software" refers to the work that is copyrighted under this license.
-"We", or "us" refer to the copyright owner of this product. That owner is Daniel Shea.
-"You" refers to the licensee of this product.
-## License, Not Purchase
-By purchasing this license, you are allowed to use this product, but Daniel Shea retains the copyright to the software.
+Copyright (c) 2017 Andrew Fong.
 
-## Redistribution
-You may not redistribute or resell the software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-## Warranty
-This product does NOT come with any warranty, express or implied, notwithstanding legislation to the contrary.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Source Code
-This software does NOT provide the source code, and it is NOT legal to attempt to acquire it, whether by reverse engineering or otherwise.
-
-Note: If Daniel Shea wishes to provide the source code, remove the NOTs in the paragraph above. In either case, remove this notice.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
