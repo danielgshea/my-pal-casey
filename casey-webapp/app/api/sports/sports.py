@@ -1,5 +1,10 @@
 import requests
 from datetime import date, timedelta
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+NEWS_API_KEY = os.getenv('NEWS_APY_KEY')
 
 def get_todays_date():
     return date.today()
@@ -10,7 +15,7 @@ def get_trending_teams():
        'q=sports teams&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     
@@ -27,7 +32,7 @@ def get_trending_players():
        'q=sports players&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     
@@ -44,7 +49,7 @@ def get_trending_leagues():
        'q=sports leagues&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     
@@ -55,4 +60,3 @@ def get_trending_leagues():
     ]
 
     return trending_leagues
-

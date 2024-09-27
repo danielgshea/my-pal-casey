@@ -1,5 +1,10 @@
 import requests
 from datetime import date, timedelta
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+NEWS_API_KEY = os.getenv('NEWS_APY_KEY')
 
 def get_todays_date():
     return date.today()
@@ -10,7 +15,7 @@ def get_trending_stories():
        'q=news stories&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     if 'articles' in data:
@@ -22,7 +27,7 @@ def get_trending_people():
        'q=famous people&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     if 'articles' in data:
@@ -34,7 +39,7 @@ def get_trending_places():
        'q=popular locations&'
        f'from={get_todays_date() - timedelta(days=2)}&'
        'sortBy=popularity&'
-       'apiKey=bb71ccb11a9243ebaa6a3315fedf8182')
+       f'apiKey={NEWS_API_KEY}')
     response = requests.get(url)
     data = response.json()
     if 'articles' in data:
