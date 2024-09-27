@@ -9,19 +9,26 @@ import React, { useState, useEffect } from 'react';
 
 import { Typography, Box, Grid, Card, CardContent, CardMedia, CircularProgress } from '@mui/material';
 
+import { ArticleList, Article } from '../models/Article';
+
 const Sports = () => {
-    const [sports, setSports] = useState([]);
+    const [sports, setSports] = useState<ArticleList>({ articles: [] });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Simulating API call with setTimeout
         setTimeout(() => {
-            setSports([
-                { id: 1, title: "NBA Finals: Team A vs Team B", description: "Game 7 of the NBA Finals set for tonight.", imageUrl: "https://example.com/nba-finals.jpg" },
-                { id: 2, title: "World Cup Qualifiers", description: "Country X secures spot in next year's World Cup.", imageUrl: "https://example.com/world-cup.jpg" },
-                { id: 3, title: "Tennis Grand Slam Update", description: "Top seed advances to semifinals in thrilling match.", imageUrl: "https://example.com/tennis.jpg" },
-            ]);
-            setLoading(false);
+            const fetchSports = async () => {
+                try {
+                    const response = await fetch('http://localhost:8000/trending/sports');
+                    const data: ArticleList = await response.json();
+                    setSports(data);
+                    setLoading(false);
+                } catch (error) {
+                    console.error('Error fetching news:', error);
+                    setLoading(false);
+                }
+            };
         }, 1000);
     }, []);
 
@@ -39,13 +46,13 @@ const Sports = () => {
                 Sports Updates
             </Typography>
             <Grid container spacing={3}>
-                {sports.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item.id}>
+                {sports.articles.map((item: Article) => (
+                    <Grid item xs={12} sm={6} md={4} key={item.url}>
                         <Card>
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={item.imageUrl}
+                                image={item.urlToImage || ''}
                                 alt={item.title}
                             />
                             <CardContent>

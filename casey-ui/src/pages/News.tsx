@@ -1,28 +1,32 @@
 /**
- * News.jsx
+ * News.tsx
  * 
  * This file contains the News page.
  * The News page is used to display the news updates and route users to other info.
  */
 
 import React, { useState, useEffect } from 'react';
-
 import { Typography, Box, Grid, Card, CardContent, CardMedia, CircularProgress } from '@mui/material';
+import { ArticleList, Article } from '../models/Article';
 
-const News = () => {
-    const [news, setNews] = useState([]);
-    const [loading, setLoading] = useState(true);
+const News: React.FC = () => {
+    const [articles, setArticles] = useState<ArticleList>({ articles: [] });
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        // Simulating API call
-        setTimeout(() => {
-            setNews([
-                { id: 1, title: "Major Sports Event Announced", description: "A new international sports event has been scheduled for next year.", imageUrl: "https://example.com/sports-event.jpg" },
-                { id: 2, title: "Celebrity Couple Splits", description: "Hollywood's favorite couple announces their separation after 10 years.", imageUrl: "https://example.com/celebrity-news.jpg" },
-                { id: 3, title: "New Movie Breaks Box Office Records", description: "The latest blockbuster surpasses expectations with record-breaking opening weekend.", imageUrl: "https://example.com/movie-poster.jpg" },
-            ]);
-            setLoading(false);
-        }, 1000);
+        const fetchNews = async () => {
+            try {
+                const response = await fetch('http://localhost:8000/trending/news');
+                const data: ArticleList = await response.json();
+                setArticles(data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                setLoading(false);
+            }
+        };
+
+        setTimeout(fetchNews, 1000);
     }, []);
 
     if (loading) {
@@ -39,21 +43,21 @@ const News = () => {
                 Latest News
             </Typography>
             <Grid container spacing={3}>
-                {news.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} key={item.id}>
-                        <Card>
+                {articles.articles.map((article: Article) => (
+                    <Grid item xs={12} sm={6} md={4} key={article.url}>
+                        <Card sx={{ cursor: 'pointer' }} onClick={() => window.open(article.url, '_blank')}>
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={item.imageUrl}
-                                alt={item.title}
+                                image={article.urlToImage || ''}
+                                alt={article.title}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
-                                    {item.title}
+                                    {article.title}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {item.description}
+                                    {article.description}
                                 </Typography>
                             </CardContent>
                         </Card>

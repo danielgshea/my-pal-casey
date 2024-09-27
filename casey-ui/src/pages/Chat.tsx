@@ -1,5 +1,5 @@
 /**
- * Chat.jsx
+ * Chat.tsx
  * 
  * This file contains the Chat component.
  * The Chat component is used to display the chat interface.
@@ -8,11 +8,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Typography, TextField, Button, Paper, CircularProgress, List, ListItem, ListItemText } from '@mui/material';
 
-const Chat = () => {
-    const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const messagesEndRef = useRef(null);
+interface Message {
+    position: 'left' | 'right';
+    text: string;
+    date: Date;
+}
+
+const Chat: React.FC = () => {
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [input, setInput] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -20,14 +26,14 @@ const Chat = () => {
 
     useEffect(scrollToBottom, [messages]);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
     };
 
     const handleSendMessage = async () => {
         if (input.trim() === '') return;
 
-        const newMessage = {
+        const newMessage: Message = {
             position: 'right',
             text: input,
             date: new Date(),
@@ -38,7 +44,7 @@ const Chat = () => {
 
         // Simulating API call to chatbot
         setTimeout(() => {
-            const botReply = {
+            const botReply: Message = {
                 position: 'left',
                 text: "This is a sample response from the chatbot.",
                 date: new Date(),
@@ -94,7 +100,7 @@ const Chat = () => {
                     placeholder="Type your message..."
                     value={input}
                     onChange={handleInputChange}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                    onKeyPress={(e: React.KeyboardEvent) => e.key === 'Enter' && handleSendMessage()}
                 />
                 <Button variant="contained" onClick={handleSendMessage} sx={{ ml: 1 }}>
                     Send
