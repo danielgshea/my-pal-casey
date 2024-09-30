@@ -13,7 +13,3 @@ export interface Article {
     publishedAt: string;
     content: string;
 }
-
-export interface ArticleList {
-    articles: Article[];
-}

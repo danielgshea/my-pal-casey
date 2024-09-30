@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import News from './pages/News';
 import Sports from './pages/Sports';
 import Chat from './pages/Chat';
+import SportsSchedule from './pages/SportsSchedule';
 import { PaletteColorOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
@@ -96,6 +97,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/news" element={<News />} />
               <Route path="/sports" element={<Sports />} />
+              <Route path="/sports/schedule/:league" element={<SportsSchedule />} />
               <Route path="/chat" element={<Chat />} />
             </Routes>
           </Layout>

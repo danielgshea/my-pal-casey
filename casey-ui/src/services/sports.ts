@@ -26,78 +26,34 @@ interface Player {
   jerseyNumber: number;
 }
 
-// Function to fetch all sports
-export const fetchSports = async (): Promise<Sport[]> => {
+type Leagues = "nfl" | "nba" | "mlb" | "nhl" | "mls" | "wnba" | "ncaacfb";
+
+
+// Fetch trending sports articles
+export const fetchTrendingSports = async () => {
   try {
-    const response = await axios.get<Sport[]>('/api/sports');
-    return response.data;
+      const response = await fetch('http://localhost:8000/trending/sports');
+      const data = await response.json();
+      console.log(data);
+      const articles = data?.articles || [];
+      return articles;
   } catch (error) {
-    console.error('Error fetching sports:', error);
-    throw error;
+      console.error('Error fetching news:', error);
+      return [];
   }
 };
 
-// Function to fetch a single sport by ID
-export const fetchSportById = async (id: number): Promise<Sport> => {
+// Fetch sports leagues
+export const fetchSportsSchedule = async (league: Leagues) => {
   try {
-    const response = await axios.get<Sport>(`/api/sports/${id}`);
-    return response.data;
+      const response = await fetch(`http://localhost:8000/sports/schedule/${league}`);
+      const data = await response.json();
+      console.log(data);
+      return data;
   } catch (error) {
-    console.error(`Error fetching sport with id ${id}:`, error);
-    throw error;
+      console.error('Error fetching sports:', error);
+      return [];
   }
 };
 
-// Function to fetch teams by sport ID
-export const fetchTeamsBySportId = async (sportId: number): Promise<Team[]> => {
-  try {
-    const response = await axios.get<Team[]>(`/api/sports/${sportId}/teams`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching teams for sport id ${sportId}:`, error);
-    throw error;
-  }
-};
 
-// Function to fetch players by team ID
-export const fetchPlayersByTeamId = async (teamId: number): Promise<Player[]> => {
-  try {
-    const response = await axios.get<Player[]>(`/api/teams/${teamId}/players`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching players for team id ${teamId}:`, error);
-    throw error;
-  }
-};
-
-// Function to create a new sport
-export const createSport = async (sportData: Omit<Sport, 'id'>): Promise<Sport> => {
-  try {
-    const response = await axios.post<Sport>('/api/sports', sportData);
-    return response.data;
-  } catch (error) {
-    console.error('Error creating sport:', error);
-    throw error;
-  }
-};
-
-// Function to update an existing sport
-export const updateSport = async (id: number, sportData: Partial<Sport>): Promise<Sport> => {
-  try {
-    const response = await axios.put<Sport>(`/api/sports/${id}`, sportData);
-    return response.data;
-  } catch (error) {
-    console.error(`Error updating sport with id ${id}:`, error);
-    throw error;
-  }
-};
-
-// Function to delete a sport
-export const deleteSport = async (id: number): Promise<void> => {
-  try {
-    await axios.delete(`/api/sports/${id}`);
-  } catch (error) {
-    console.error(`Error deleting sport with id ${id}:`, error);
-    throw error;
-  }
-};
