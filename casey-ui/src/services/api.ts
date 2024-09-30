@@ -1,11 +1,12 @@
-import { fetchNews } from './news';
-import { fetchSports } from './sports';
+import { fetchTrendingNews } from './news';
+import { fetchTrendingSports, fetchSportsSchedule } from './sports';
 
 export const api = {
     news: {
-        fetch: fetchNews,
+        fetchTrendingNews,
     },
     sports: {
-        fetch: fetchSports,
+        fetchTrendingSports,
+        fetchSportsSchedule,
     },
 };

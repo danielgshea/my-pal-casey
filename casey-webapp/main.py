@@ -1,7 +1,13 @@
-from fastapi import FastAPI
+import uvicorn
+import logging
+from app.app import app
 
-app = FastAPI()
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello, Casey!"}
+if __name__ == "__main__":
+    logger.info("Starting the Casey webapp")
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+    logger.info("Casey webapp is running")
+
