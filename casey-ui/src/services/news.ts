@@ -13,7 +13,7 @@ interface News {
 // Fetch trending news articles
 export const fetchTrendingNews = async () => {
   try {
-      const response = await fetch(`http://localhost:8000/trending/news?`);
+      const response = await fetch(`http://localhost:8000/news/trending`);
       const data = await response.json();
       console.log(data);
       const articles = data?.articles || [];

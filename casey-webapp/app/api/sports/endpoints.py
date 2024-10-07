@@ -1,5 +1,6 @@
 from fastapi import APIRouter
-from app.api.sports.sports import get_trending_sports_articles, get_sports_schedule
+from app.api.sports.sports import get_trending_sports_articles
+from app.api.sports.football.nfl import get_nfl_schedule
 
 sports_router = APIRouter()
 
@@ -13,5 +14,8 @@ async def trending():
 
 @sports_router.get("/schedule/{league}")
 async def schedule(league: str):
-    return get_sports_schedule(league)
+    if league == "nfl":
+        return get_nfl_schedule()
+    else:
+        return {"message": "League not supported"}
 

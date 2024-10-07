@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
     logger.info("Starting the Casey webapp")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Change this line to use the import string format
+    uvicorn.run("app.app:app", host="0.0.0.0", port=8000, reload=True)
     logger.info("Casey webapp is running")
 

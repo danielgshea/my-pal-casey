@@ -7,9 +7,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, CircularProgress, Button } from '@mui/material';
-import { Article } from '../models/article';
-import ContentList from '../components/ContentList';
-import { api } from '../services/api';
+import { Article } from '../../models/article';
+import ContentList from '../../components/ContentList';
+import { api } from '../../services/api';
 
 const News: React.FC = () => {
     const [articles, setArticles] = useState<Article[]>([]);

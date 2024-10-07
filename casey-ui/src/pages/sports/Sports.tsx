@@ -8,10 +8,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { Typography, Box, CircularProgress } from '@mui/material';
-import ContentList from '../components/ContentList';
-import { api } from '../services/api';
-import LeagueList from '../components/LeagueList';
-import { Article } from '../models/article';
+import ContentList from '../../components/ContentList';
+import { api } from '../../services/api';
+import LeagueList from '../../components/sports/LeagueList';
+import { Article } from '../../models/article';
 
 const Sports = () => {
     const [sports, setSports] = useState<Article[]>([]);

@@ -1,8 +1,8 @@
 import requests
-from datetime import date, timedelta
+from datetime import date
 import os
 from dotenv import load_dotenv
-from app.api.sports.cfb.cfb import get_ncaacfb_schedule
+
 load_dotenv()
 NEWS_API_KEY = os.getenv('NEWS_APY_KEY')
 
@@ -20,9 +20,3 @@ def get_trending_sports_articles():
     if 'articles' in data:
         data['articles'] = [article for article in data['articles'] if article.get('urlToImage') is not None]
     return data
-
-def get_sports_schedule(league: str):
-    if league == 'ncaacfb':
-        return get_ncaacfb_schedule()
-    else:
-        return None

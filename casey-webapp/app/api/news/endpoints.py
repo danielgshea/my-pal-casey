@@ -8,5 +8,5 @@ async def news():
     return {"message": "News endpoint accessed"}
 
 @news_router.get("/trending")
-async def trending(topic: str):
-    return get_trending_news_articles(topic=topic)
+async def trending():
+    return get_trending_news_articles()
