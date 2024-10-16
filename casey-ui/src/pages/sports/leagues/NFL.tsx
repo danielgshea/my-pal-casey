@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { api } from '../../../services/api';
-import SportsSchedule from '../../../components/sports/SportsSchedule';
-import { Game } from '../../../models/game';
 import { useState } from 'react';
 import { Schedule } from '../../../models/schedule';
+import NFLSchedule from '../../../components/sports/NFLSchedule';
 
 const NFL = () => {
 
@@ -15,12 +14,18 @@ const NFL = () => {
         setSchedule(schedule);
     }
 
+    const getScrapedSchedule = async () => {
+        const schedule = await api.sports.fetchScrapedSportsSchedule('nfl');
+        console.log(schedule);
+        setSchedule(schedule);
+    }
+
     useEffect(() => {
-        getSchedule();
+        getScrapedSchedule();
     }, []);
 
     return (
-        <SportsSchedule league="NFL" schedule={schedule} />
+        <NFLSchedule schedule={schedule} />
     )
 }
 

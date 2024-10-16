@@ -1,5 +1,5 @@
 import { fetchTrendingNews } from './news';
-import { fetchTrendingSports, fetchSportsSchedule } from './sports';
+import { fetchTrendingSports, fetchSportsSchedule, fetchScrapedSportsSchedule } from './sports';
 
 export const api = {
     news: {
@@ -8,5 +8,6 @@ export const api = {
     sports: {
         fetchTrendingSports,
         fetchSportsSchedule,
+        fetchScrapedSportsSchedule,
     },
 };

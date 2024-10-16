@@ -9,11 +9,11 @@ interface LeagueProps {
 }
 
 const leagues: LeagueProps[] = [
+    { id: 'cfb', name: 'College Football', logo: '/assets/images/logos/NCAA_LOGO.png' },
     { id: 'nfl', name: 'NFL', logo: '/assets/images/logos/nfl.png' },
     { id: 'nba', name: 'NBA', logo: '/assets/images/logos/nba.png' },
     { id: 'wnba', name: 'WNBA', logo: '/assets/images/logos/wnba.png' },
     { id: 'mlb', name: 'MLB', logo: '/assets/images/logos/mlb.png' },
-    { id: 'nhl', name: 'NHL', logo: '/assets/images/logos/nhl.webp' },
     { id: 'mls', name: 'MLS', logo: '/assets/images/logos/mls.svg' },
 ];
 

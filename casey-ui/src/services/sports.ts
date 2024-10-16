@@ -29,4 +29,15 @@ export const fetchSportsSchedule = async (league: Leagues) => {
   }
 };
 
+export const fetchScrapedSportsSchedule = async (league: Leagues) => {
+  try {
+      const response = await fetch(`http://localhost:8000/sports/schedule/scraped/${league}`);
+      const data = await response.json();
+      console.log(data);
+      return data;
+  } catch (error) {
+      console.error('Error fetching scraped sports schedule:', error);
+      return [];
+  }
+}
 

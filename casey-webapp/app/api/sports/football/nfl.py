@@ -2,6 +2,7 @@ import csv
 import os
 from dotenv import load_dotenv
 from models.models import Schedule, Game
+from .scrape_nfl import scrape_nfl_schedule
 
 load_dotenv()
 
@@ -38,3 +39,5 @@ def get_nfl_schedule():
 
     return schedule
 
+def get_nfl_schedule_scraper():
+    return scrape_nfl_schedule()

@@ -1,1 +1,1 @@
-export type Leagues = "nfl" | "nba" | "mlb" | "nhl" | "mls" | "wnba" | "ncaacfb";
+export type Leagues = "cfb" | "nfl" | "nba" | "mlb" | "nhl" | "mls" | "wnba" | "ncaacfb";
